@@ -20,8 +20,8 @@ return new class extends Migration
             $table->datetime('arriving_time', 4);
             $table->bigInteger('train_code');
             $table->tinyInteger('carriages', 20)->nullable();
-            $table->boolean('in_time')->default(1);
-            $table->boolean('cancelled')->default(1);
+            $table->boolean('in_time')->default(1)->nullable();
+            $table->boolean('cancelled')->default(1)->nullable();
             $table->timestamps();
         });
     }
