@@ -11,21 +11,58 @@
   </div>
 
   <div class="container py-4">
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+    <div class="row flex-column g-4">
       @forelse ($trains as $train)
         <div class="col">
           <div class="card">
+
             <div class="card-body">
-              <h3 class="card-title">{{ strtoupper($train->departure_station) }}</h3>
-              <h3 class="card-title">{{ strtoupper($train->departure_time) }}</h3>
-              <h3 class="card-title">{{ strtoupper($train->arriving_station) }}</h3>
-              <h3 class="card-title">{{ strtoupper($train->arriving_time) }}</h3>
-              <h3 class="card-title">{{ strtoupper($train->company) }}</h3>
-              <h3>{{ $train->train_type ?? '' }}</h3>
-              <h3>{{ $train->train_code }}</h3>
-              <h3 class="card-title">{{ strtoupper($train->carriages) }}</h3>
-              <h3>{{ !$train->in_time ? 'Treno in ritardo' : '' }}</h3>
-              <h3>{{ $train->cancelled ? 'Treno cancellato' : '' }}</h3>
+
+              <h4 class="card-title">{{ $train->company }}</h4>
+
+              <div id="train_type" class="mb-3">
+                <span>{{ $train->train_type ?? '' }}</span>
+                <span>{{ $train->train_code }}</span>
+              </div>
+
+              <div class="row">
+
+                <div class="col-6">
+                  <div id="departure">
+
+                    <h5>Partenza</h5>
+
+                    <p class="me-4">Stazione di partenza:
+                      <strong>{{ $train->departure_station }}</strong>
+                    </p>
+
+                    <p class="m-0">Orario di partenza:
+                      <strong>{{ substr($train->departure_time, 11, 15) }}</strong>
+                    </p>
+
+                  </div>
+                </div>
+
+                <div class="col-6">
+                  <div id="arriving">
+
+                    <h5>Arrivo</h5>
+
+                    <p class="me-4">Stazione di arrivo:
+                      <strong>{{ $train->arriving_station }}</strong>
+                    </p>
+
+                    <p class="m-0">Orario di arrivo:
+                      <strong>{{ substr($train->arriving_time, 11, 15) }}</strong>
+                    </p>
+
+                  </div>
+                </div>
+              </div>
+
+              <h4 class="card-title">{{ $train->carriages }}</h4>
+              <h4>{{ !$train->in_time ? 'Treno in ritardo' : '' }}</h4>
+              <h4>{{ $train->cancelled ? 'Treno cancellato' : '' }}</h4>
             </div>
           </div>
         </div>
