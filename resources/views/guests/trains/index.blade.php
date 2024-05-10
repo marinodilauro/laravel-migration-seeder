@@ -21,6 +21,8 @@
               <h3 class="card-title">{{ strtoupper($train->arriving_station) }}</h3>
               <h3 class="card-title">{{ strtoupper($train->arriving_time) }}</h3>
               <h3 class="card-title">{{ strtoupper($train->company) }}</h3>
+              <h3>{{ $train->train_type ?? '' }}</h3>
+              <h3>{{ $train->train_code }}</h3>
               <h3 class="card-title">{{ strtoupper($train->carriages) }}</h3>
               <h3>{{ !$train->in_time ? 'Treno in ritardo' : '' }}</h3>
               <h3>{{ $train->cancelled ? 'Treno cancellato' : '' }}</h3>
