@@ -16,12 +16,12 @@ return new class extends Migration
             $table->string('company', 50);
             $table->string('departure_station', 100);
             $table->string('arriving_station', 100);
-            $table->datetime('departure_time', 4);
-            $table->datetime('arriving_time', 4);
-            $table->bigInteger('train_code');
+            $table->dateTime('departure_time');
+            $table->dateTime('arriving_time');
+            $table->string('train_code', 10);
             $table->tinyInteger('carriages')->nullable();
             $table->boolean('in_time')->default(1)->nullable();
-            $table->boolean('cancelled')->default(1)->nullable();
+            $table->boolean('cancelled')->default(0)->nullable();
             $table->timestamps();
         });
     }
