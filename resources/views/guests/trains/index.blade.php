@@ -22,10 +22,11 @@
 
               <div id="train_type" class="mb-3">
                 <span>{{ $train->train_type ?? '' }}</span>
-                <span>{{ $train->train_code }}</span>
+                <span class="mx-3">{{ $train->train_code }}</span>
+                <span>Carrozze: {{ $train->carriages }}</span>
               </div>
 
-              <div class="row">
+              <div class="row mb-3">
 
                 <div class="col-6">
                   <div id="departure">
@@ -60,9 +61,9 @@
                 </div>
               </div>
 
-              <h4 class="card-title">{{ $train->carriages }}</h4>
-              <h4>{{ !$train->in_time ? 'Treno in ritardo' : '' }}</h4>
-              <h4>{{ $train->cancelled ? 'Treno cancellato' : '' }}</h4>
+              <span class="text-danger"><strong>{{ !$train->in_time ? 'Treno in ritardo' : '' }}</strong></span>
+              <span class="text-danger"><strong>{{ $train->cancelled ? 'Treno cancellato' : '' }}</strong></span>
+
             </div>
           </div>
         </div>
